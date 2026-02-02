@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makira Visual Lab</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Paleta de colores */
+        :root {
+            --turquesa: #00BFA5;
+            --salmon: #FF6B6B;
+            --negro: #333333;
+            --gris: #666666;
+            --blanco: #FFFFFF;
+        }
+
+        /* Tipografía */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--negro);
+            background-color: var(--blanco);
+        }
+
+        h1, h2, h3 {
+            font-weight: bold;
+        }
+
+        /* Navegación */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--negro);
+            z-index: 1000;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--turquesa);
+        }
+
+        /* Secciones */
+        section {
+            padding: 80px 20px;
+            min-height: 100vh;
+        }
+
+        /* Inicio */
+        #inicio {
+            background-image: url('https://via.placeholder.com/1920x1080?text=Set+de+Grabacion'); /* Placeholder para imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            color: var(--blanco);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #inicio h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        #inicio p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .btn {
+            background-color: var(--salmon);
+            color: var(--blanco);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--turquesa);
+        }
+
+        /* ¿Quiénes somos? */
+        #quienes-somos {
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #quienes-somos .content {
+            max-width: 50%;
+        }
+
+        #quienes-somos img {
+            max-width: 40%;
+            height: auto;
+        }
+
+        /* Fundamentos Audiovisuales */
+        #fundamentos {
+            background-color: var(--blanco);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--blanco);
+            border: 2px solid var(--turquesa);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .card h3 {
+            color: var(--turquesa);
+            margin: 15px 0;
+        }
+
+        .card p {
+            font-size: 16px;
+        }
+
+        /* Visualteca */
+        #visualteca {
+            background-color: #f4f4f4;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background-color: var(--blanco);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .gallery-item a {
+            color: var(--salmon);
+            text-decoration: none;
+        }
+
+        /* Guías Prácticas */
+        #guias {
+            background-color: var(--blanco);
+        }
+
+        .tips {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tip {
+            background-color: #f4f4f4;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid var(--turquesa);
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: var(--negro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: var(--turquesa);
+            margin: 0 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            #inicio h1 {
+                font-size: 32px;
+            }
+
+            #quienes-somos {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #quienes-somos .content, #quienes-somos img {
+                max-width: 100%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#quienes-somos">¿Quiénes somos?</a></li>
+            <li><a href="#fundamentos">Fundamentos Audiovisuales</a></li>
+            <li><a href="#visualteca">Visualteca</a></li>
+            <li><a href="#guias">Guías Prácticas</a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio">
+        <h1>Aprende los fundamentos del contenido audiovisual de forma clara, visual y educativa.</h1>
+        <p>Makira Visual Lab es tu guía para crear contenido audiovisual de calidad. Descubre cómo la iluminación, el encuadre y la composición pueden transformar tus ideas en producciones impactantes. ¡Empieza tu viaje creativo hoy!</p>
+        <a href="#fundamentos" class="btn">Comenzar a aprender</a>
+        <a href="#visualteca" class="btn">Explorar fundamentos audiovisuales</a>
+    </section>
+
+    <section id="quienes-somos">
+        <div class="content">
+            <h2>¿Quiénes somos?</h2>
+            <p>Makira Visual Lab es una plataforma educativa gratuita diseñada para jóvenes creadores de contenido y autodidactas. Nuestro enfoque es el aprendizaje autónomo: explicamos conceptos audiovisuales con ejemplos prácticos, fomentando la creatividad sin necesidad de equipos costosos.</p>
+            <p>¡Tú eres el director de tu historia! Aprende a comunicar ideas con intención y calidad, y lleva tus producciones al siguiente nivel.</p>
+        </div>
+        <img src="https://via.placeholder.com/500x300?text=Jovenes+Creadores" alt="Jóvenes creadores de contenido">
+    </section>
+
+    <section id="fundamentos">
+        <h2>Fundamentos Audiovisuales</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200?text=Iluminacion" alt="Iluminación">
+                <h3>Iluminación</h3>
+                <p>La luz no solo ilumina, sino que expresa emociones. Usa luz natural para tomas cálidas o artificial para control total. Importancia técnica: evita sombras duras; expresiva: luz suave para intimidad.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200?text=Tipos+de+Planos" alt="Tipos de Planos">
+                <h3>Tipos de Planos</h3>
+                <p>El plano general muestra el entorno, el medio enfoca acciones, y el primer plano revela emociones. Función narrativa: usa planos para guiar la atención del espectador.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200?text=Movimiento+de+Camara" alt="Movimiento de Cámara">
+                <h3>Movimiento de Cámara</h3>
+                <p>Paneo para seguir acción, travelling para explorar espacios, o fija para tensión. Uso intencional: el movimiento cuenta historias; evita movimientos bruscos.</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200?text=Composicion+Visual" alt="Composición Visual">
+                <h3>Composición Visual</h3>
+                <p>Regla de los tercios divide la imagen en 9 partes para equilibrio. Equilibrio visual: evita centros vacíos; dirección de la mirada: guía al espectador.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="visualteca">
+        <h2>Visualteca</h2>
+        <p>Accede a videos, guías y ejemplos para profundizar. ¡Complementa tu aprendizaje!</p>
+        <div class="gallery">
+            <div class="gallery-item">
+                <h4>Iluminación</h4>
+                <a href="https://www.youtube.com/watch?v=ejemplo" target="_blank">Tutorial de iluminación básica</a>
+            </div>
+            <div class="gallery-item">
+                <h4>Cámara</h4>
+                <a href="https://www.youtube.com/watch?v=ejemplo" target="_blank">Ejemplos de movimiento de cámara</a>
+            </div>
+            <div class="gallery-item">
+                <h4>Composición
